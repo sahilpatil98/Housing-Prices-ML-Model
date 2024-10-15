@@ -32,28 +32,21 @@ class TemporalVariableTransformer(BaseEstimator, TransformerMixin):
 #Categorical Missing Value Imputer
 
 class Mapper(BaseEstimator, TransformerMixin):
-    # Mapper for categorical variables
 
     def __init__(self, variables, mappings):
 
         if not isinstance(variables, list):
             raise ValueError('variables should be a list')
 
-        if not isinstance(mappings, dict):
-            raise ValueError('mappings should be a dictionary with the category: value pairs')
-
         self.variables = variables
         self.mappings = mappings
 
     def fit(self, X, y=None):
-        # we need this step to fit the sklearn pipeline
+        # we need the fit statement to accomodate the sklearn pipeline
         return self
 
     def transform(self, X):
-        # Temporal elapsed time transformer
-
         X = X.copy()
-
         for feature in self.variables:
             X[feature] = X[feature].map(self.mappings)
 
@@ -118,37 +111,36 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
             X[feature] = np.where(X[feature].isin(self.encoder_dict_[feature]), X[feature], 'Rare')
 
         return X
-    
+
 
 class CategoricalEncoder(BaseEstimator, TransformerMixin):
-    # Categorical encoder
+    """String to numbers categorical encoder."""
 
-    def __init__(self, variables=None):
+    def __init__(self, variables):
 
         if not isinstance(variables, list):
             raise ValueError('variables should be a list')
-
+        
         self.variables = variables
 
-    def fit(self, X, y=None):
+    def fit(self, X, y):
         temp = pd.concat([X, y], axis=1)
-        tmp.columns = list(X.columns) + ['target']
+        temp.columns = list(X.columns) + ["target"]
 
-        # persist frequent labels in dictionary
+        # persist transforming dictionary
         self.encoder_dict_ = {}
 
         for var in self.variables:
-            t = temp.groupby([var])['target'].mean().sort_values(ascending=True).index
+            t = temp.groupby([var])["target"].mean().sort_values(ascending=True).index
             self.encoder_dict_[var] = {k: i for i, k in enumerate(t, 0)}
 
         return self
 
     def transform(self, X):
-        # Temporal elapsed time transformer
-
+        # encode labels
         X = X.copy()
-
         for feature in self.variables:
             X[feature] = X[feature].map(self.encoder_dict_[feature])
 
-        return x
+        return X
+
