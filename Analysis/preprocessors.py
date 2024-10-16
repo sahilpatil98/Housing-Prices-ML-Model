@@ -1,36 +1,38 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 from sklearn.base import BaseEstimator, TransformerMixin
 
+
+
 class TemporalVariableTransformer(BaseEstimator, TransformerMixin):
-    # Temporal Elapsed time transformer
+	# Temporal elapsed time transformer
 
     def __init__(self, variables, reference_variable):
-
+        
         if not isinstance(variables, list):
             raise ValueError('variables should be a list')
-
+        
         self.variables = variables
         self.reference_variable = reference_variable
-    
+
     def fit(self, X, y=None):
         # we need this step to fit the sklearn pipeline
         return self
 
     def transform(self, X):
-        # Temporal elapsed time transformer
 
+    	# so that we do not over-write the original dataframe
         X = X.copy()
-
+        
         for feature in self.variables:
             X[feature] = X[self.reference_variable] - X[feature]
 
         return X
-    
 
-#Categorical Missing Value Imputer
 
+
+# categorical missing value imputer
 class Mapper(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables, mappings):
@@ -53,40 +55,37 @@ class Mapper(BaseEstimator, TransformerMixin):
         return X
     
 
+
 class MeanImputer(BaseEstimator, TransformerMixin):
-    # Mean imputer for missing values
+    """Numerical missing value imputer."""
 
-    def __init__(self, variables=None):
-
+    def __init__(self, variables):
         if not isinstance(variables, list):
             raise ValueError('variables should be a list')
-
         self.variables = variables
 
     def fit(self, X, y=None):
-        # persist the mean in a dictionary
+        # persist mean values in a dictionary
         self.imputer_dict_ = X[self.variables].mean().to_dict()
         return self
 
     def transform(self, X):
-        # Temporal elapsed time transformer
-
         X = X.copy()
-
         for feature in self.variables:
-            X[feature].fillna(self.imputer_dict_[feature], inplace=True)
-
+            X[feature].fillna(self.imputer_dict_[feature],
+                              inplace=True)
         return X
-    
+
+
 
 class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
-    # Rare label categorical encoder
+    """Groups infrequent categories into a single string"""
 
-    def __init__(self, tol=0.05, variables=None):
+    def __init__(self, variables, tol = 0.05):
 
         if not isinstance(variables, list):
             raise ValueError('variables should be a list')
-
+        
         self.tol = tol
         self.variables = variables
 
@@ -96,19 +95,18 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
 
         for var in self.variables:
             # the encoder will learn the most frequent categories
-            t = pd.Series(X[var].value_counts(normalize=True)) 
+            t = pd.Series(X[var].value_counts(normalize=True))
             # frequent labels:
             self.encoder_dict_[var] = list(t[t >= self.tol].index)
 
         return self
 
     def transform(self, X):
-        # Temporal elapsed time transformer
-
         X = X.copy()
-
         for feature in self.variables:
-            X[feature] = np.where(X[feature].isin(self.encoder_dict_[feature]), X[feature], 'Rare')
+            X[feature] = np.where(
+                X[feature].isin(self.encoder_dict_[feature]),
+                                X[feature], "Rare")
 
         return X
 
@@ -143,4 +141,3 @@ class CategoricalEncoder(BaseEstimator, TransformerMixin):
             X[feature] = X[feature].map(self.encoder_dict_[feature])
 
         return X
-
