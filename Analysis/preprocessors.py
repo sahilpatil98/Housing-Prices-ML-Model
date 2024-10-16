@@ -7,7 +7,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 
 class TemporalVariableTransformer(BaseEstimator, TransformerMixin):
 	# Temporal elapsed time transformer
-
+    
     def __init__(self, variables, reference_variable):
         
         if not isinstance(variables, list):
@@ -141,3 +141,5 @@ class CategoricalEncoder(BaseEstimator, TransformerMixin):
             X[feature] = X[feature].map(self.encoder_dict_[feature])
 
         return X
+    
+
