@@ -8,7 +8,6 @@ class TemporalVariableTransformer(BaseEstimator, TransformerMixin):
     """Temporal elapsed time transformer."""
 
     def __init__(self, variables: List[str], reference_variable: str):
-
         if not isinstance(variables, list):
             raise ValueError("variables should be a list")
 
@@ -20,7 +19,6 @@ class TemporalVariableTransformer(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X: pd.DataFrame) -> pd.DataFrame:
-
         # so that we do not over-write the original dataframe
         X = X.copy()
 
@@ -34,7 +32,6 @@ class Mapper(BaseEstimator, TransformerMixin):
     """Categorical variable mapper."""
 
     def __init__(self, variables: List[str], mappings: dict):
-
         if not isinstance(variables, list):
             raise ValueError("variables should be a list")
 
