@@ -1,0 +1,101 @@
+name: run
+run_id: commands[0]
+env APPDATA: C:\Users\d0tam\AppData\Roaming
+env COMSPEC: C:\WINDOWS\system32\cmd.exe
+env NUMBER_OF_PROCESSORS: 24
+env PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW;.CPL
+env PROCESSOR_ARCHITECTURE: AMD64
+env PROGRAMDATA: C:\ProgramData
+env PROGRAMFILES: C:\Program Files
+env PROGRAMFILES(X86): C:\Program Files (x86)
+env SYSTEMDRIVE: C:
+env SYSTEMROOT: C:\WINDOWS
+env TEMP: C:\Users\d0tam\AppData\Local\Temp
+env TMP: C:\Users\d0tam\AppData\Local\Temp
+env USERPROFILE: C:\Users\d0tam
+env WINDIR: C:\WINDOWS
+env PATH: C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox\test_app\Scripts;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;D:\Applications\Git\cmd;C:\Ruby32-x64\bin;C:\Users\d0tam\anaconda3;C:\Users\d0tam\anaconda3\Library\mingw-w64\bin;C:\Users\d0tam\anaconda3\Library\usr\bin;C:\Users\d0tam\anaconda3\Library\bin;C:\Users\d0tam\anaconda3\Scripts;C:\Users\d0tam\miniconda3;C:\Users\d0tam\miniconda3\Library\mingw-w64\bin;C:\Users\d0tam\miniconda3\Library\usr\bin;C:\Users\d0tam\miniconda3\Library\bin;C:\Users\d0tam\miniconda3\Scripts;C:\Users\d0tam\AppData\Local\Microsoft\WindowsApps;C:\Users\d0tam\AppData\Local\Programs\Microsoft VS Code\bin;C:\ProgramData\d0tam\GitHubDesktop\bin;C:\Users\d0tam\AppData\Local\GitHubDesktop\bin
+env PYTHONHASHSEED: 452
+env PIP_DISABLE_PIP_VERSION_CHECK: 1
+env PYTHONIOENCODING: utf-8
+env PYTHONPATH: .
+env TOX_ENV_NAME: run
+env TOX_WORK_DIR: C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox
+env TOX_ENV_DIR: C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox\test_app
+env VIRTUAL_ENV: C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox\test_app
+env COLUMNS: 120
+env LINES: 30
+metadata pid: 33028
+cwd: C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api
+allow: C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox\test_app\Scripts\*
+cmd: python app/main.py
+exit_code: 3221225786
+INFO:     ::1:55927 - "GET / HTTP/1.1" 200 OK
+INFO:     ::1:55927 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     ::1:55927 - "GET /docs HTTP/1.1" 200 OK
+INFO:     ::1:55927 - "GET /api/v1/openapi.json HTTP/1.1" 200 OK
+INFO:     ::1:56030 - "GET / HTTP/1.1" 200 OK
+INFO:     ::1:56030 - "GET /docs HTTP/1.1" 200 OK
+INFO:     ::1:56030 - "GET /api/v1/openapi.json HTTP/1.1" 200 OK
+INFO:     ::1:56037 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     ::1:56037 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     ::1:56052 - "GET / HTTP/1.1" 200 OK
+INFO:     ::1:56052 - "GET /docs HTTP/1.1" 200 OK
+INFO:     ::1:56052 - "GET /api/v1/openapi.json HTTP/1.1" 200 OK
+INFO:     ::1:56067 - "POST /api/v1/predict HTTP/1.1" 200 OK
+INFO:     ::1:56067 - "POST /api/v1/predict HTTP/1.1" 200 OK
+INFO:     ::1:56070 - "POST /api/v1/predict HTTP/1.1" 200 OK
+
+standard error:
+C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox\test_app\Lib\site-packages\sklearn\base.py:376: InconsistentVersionWarning: Trying to unpickle estimator Binarizer from version 1.2.0 when using version 1.5.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox\test_app\Lib\site-packages\sklearn\base.py:376: InconsistentVersionWarning: Trying to unpickle estimator MinMaxScaler from version 1.2.0 when using version 1.5.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox\test_app\Lib\site-packages\sklearn\base.py:376: InconsistentVersionWarning: Trying to unpickle estimator Lasso from version 1.2.0 when using version 1.5.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox\test_app\Lib\site-packages\sklearn\base.py:376: InconsistentVersionWarning: Trying to unpickle estimator Pipeline from version 1.2.0 when using version 1.5.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+2024-10-18 12:07:22.450 | WARNING  | __main__:<module>:55 - Running in development mode. Do not run like this in production.
+INFO:     Started server process [30024]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://localhost:8001 (Press CTRL+C to quit)
+2024-10-18 12:16:41.443 | INFO     | app.api:predict:40 - Making prediction on inputs: [HouseDataInputSchema(Alley=None, BedroomAbvGr=2, BldgType='1Fam', BsmtCond='TA', BsmtExposure='No', BsmtFinSF1=468.0, BsmtFinSF2=144.0, BsmtFinType1='Rec', BsmtFinType2='LwQ', BsmtFullBath=0.0, BsmtHalfBath=0.0, BsmtQual='TA', BsmtUnfSF=270.0, CentralAir='Y', Condition1='Feedr', Condition2='Norm', Electrical='SBrkr', EnclosedPorch=0, ExterCond='TA', ExterQual='TA', Exterior1st='VinylSd', Exterior2nd='VinylSd', Fence='MnPrv', FireplaceQu=None, Fireplaces=0, Foundation='CBlock', FullBath=1, Functional='Typ', GarageArea=730.0, GarageCars=1.0, GarageCond='TA', GarageFinish='Unf', GarageQual='TA', GarageType='Attchd', GarageYrBlt=1961.0, GrLivArea=896, HalfBath=0, Heating='GasA', HeatingQC='TA', HouseStyle='1Story', Id=None, KitchenAbvGr=1, KitchenQual='TA', LandContour='Lvl', LandSlope='Gtl', LotArea=11622, LotConfig='Inside', LotFrontage=80.0, LotShape='Reg', LowQualFinSF=0, MSSubClass=20, MSZoning='RH', MasVnrArea=0.0, MasVnrType='None', MiscFeature=None, MiscVal=0, MoSold=6, Neighborhood='NAmes', OpenPorchSF=0, OverallCond=6, OverallQual=5, PavedDrive='Y', PoolArea=0, PoolQC=None, RoofMatl='CompShg', RoofStyle='Gable', SaleCondition='Normal', SaleType='WD', ScreenPorch=120, Street='Pave', TotRmsAbvGrd=5, TotalBsmtSF=882.0, Utilities='AllPub', WoodDeckSF=140, YearBuilt=1961, YearRemodAdd=1961, YrSold=2010, FirstFlrSF=896, SecondFlrSF=0, ThreeSsnPortch=0)]
+2024-10-18 12:16:41.464 | INFO     | app.api:predict:47 - Prediction results: [113422.55344864173]
+2024-10-18 12:16:42.798 | INFO     | app.api:predict:40 - Making prediction on inputs: [HouseDataInputSchema(Alley=None, BedroomAbvGr=2, BldgType='1Fam', BsmtCond='TA', BsmtExposure='No', BsmtFinSF1=468.0, BsmtFinSF2=144.0, BsmtFinType1='Rec', BsmtFinType2='LwQ', BsmtFullBath=0.0, BsmtHalfBath=0.0, BsmtQual='TA', BsmtUnfSF=270.0, CentralAir='Y', Condition1='Feedr', Condition2='Norm', Electrical='SBrkr', EnclosedPorch=0, ExterCond='TA', ExterQual='TA', Exterior1st='VinylSd', Exterior2nd='VinylSd', Fence='MnPrv', FireplaceQu=None, Fireplaces=0, Foundation='CBlock', FullBath=1, Functional='Typ', GarageArea=730.0, GarageCars=1.0, GarageCond='TA', GarageFinish='Unf', GarageQual='TA', GarageType='Attchd', GarageYrBlt=1961.0, GrLivArea=896, HalfBath=0, Heating='GasA', HeatingQC='TA', HouseStyle='1Story', Id=None, KitchenAbvGr=1, KitchenQual='TA', LandContour='Lvl', LandSlope='Gtl', LotArea=11622, LotConfig='Inside', LotFrontage=80.0, LotShape='Reg', LowQualFinSF=0, MSSubClass=20, MSZoning='RH', MasVnrArea=0.0, MasVnrType='None', MiscFeature=None, MiscVal=0, MoSold=6, Neighborhood='NAmes', OpenPorchSF=0, OverallCond=6, OverallQual=5, PavedDrive='Y', PoolArea=0, PoolQC=None, RoofMatl='CompShg', RoofStyle='Gable', SaleCondition='Normal', SaleType='WD', ScreenPorch=120, Street='Pave', TotRmsAbvGrd=5, TotalBsmtSF=882.0, Utilities='AllPub', WoodDeckSF=140, YearBuilt=1961, YearRemodAdd=1961, YrSold=2010, FirstFlrSF=896, SecondFlrSF=0, ThreeSsnPortch=0)]
+2024-10-18 12:16:42.820 | INFO     | app.api:predict:47 - Prediction results: [113422.55344864173]
+2024-10-18 12:17:28.031 | INFO     | app.api:predict:40 - Making prediction on inputs: [HouseDataInputSchema(Alley=None, BedroomAbvGr=2, BldgType='1Fam', BsmtCond='TA', BsmtExposure='No', BsmtFinSF1=468.0, BsmtFinSF2=144.0, BsmtFinType1='Rec', BsmtFinType2='LwQ', BsmtFullBath=0.0, BsmtHalfBath=0.0, BsmtQual='TA', BsmtUnfSF=270.0, CentralAir='Y', Condition1='Feedr', Condition2='Norm', Electrical='SBrkr', EnclosedPorch=0, ExterCond='TA', ExterQual='TA', Exterior1st='VinylSd', Exterior2nd='VinylSd', Fence='MnPrv', FireplaceQu=None, Fireplaces=0, Foundation='CBlock', FullBath=1, Functional='Typ', GarageArea=730.0, GarageCars=1.0, GarageCond='TA', GarageFinish='Unf', GarageQual='TA', GarageType='Attchd', GarageYrBlt=1961.0, GrLivArea=896, HalfBath=0, Heating='GasA', HeatingQC='TA', HouseStyle='1Story', Id=None, KitchenAbvGr=1, KitchenQual='TA', LandContour='Lvl', LandSlope='Gtl', LotArea=11622, LotConfig='Inside', LotFrontage=80.0, LotShape='Reg', LowQualFinSF=0, MSSubClass=30, MSZoning='RH', MasVnrArea=0.0, MasVnrType='None', MiscFeature=None, MiscVal=0, MoSold=6, Neighborhood='NAmes', OpenPorchSF=0, OverallCond=6, OverallQual=5, PavedDrive='Y', PoolArea=0, PoolQC=None, RoofMatl='CompShg', RoofStyle='Gable', SaleCondition='Normal', SaleType='WD', ScreenPorch=120, Street='Pave', TotRmsAbvGrd=5, TotalBsmtSF=882.0, Utilities='AllPub', WoodDeckSF=140, YearBuilt=1961, YearRemodAdd=1961, YrSold=2010, FirstFlrSF=896, SecondFlrSF=0, ThreeSsnPortch=0)]
+2024-10-18 12:17:28.049 | INFO     | app.api:predict:47 - Prediction results: [110101.25023306886]
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [30024]
+Traceback (most recent call last):
+  File "C:\Users\d0tam\anaconda3\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d0tam\anaconda3\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\app\main.py", line 58, in <module>
+    uvicorn.run(app, host="localhost", port=8001, log_level="debug")
+  File "C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox\test_app\Lib\site-packages\uvicorn\main.py", line 575, in run
+    server.run()
+  File "C:\Users\d0tam\Housing-Prices-ML-Model\model-serving-api\house-prices-api\.tox\test_app\Lib\site-packages\uvicorn\server.py", line 65, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d0tam\anaconda3\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\d0tam\anaconda3\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
