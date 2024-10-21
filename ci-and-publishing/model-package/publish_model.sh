@@ -32,7 +32,7 @@ build() {
     python "$SETUP" sdist bdist_wheel || die "Building package $PACKAGE_NAME failed"
     for X in $(ls dist)
     do
-        curl -F package=@"dist/$X" "$GEMFURY_URL" || die "$X and url $GEMFURY_URL failed"
+        curl -F package=@"dist/$X" "$GEMFURY_PUSH_URL" || die "$X and url $GEMFURY_PUSH_URL failed $KAGGLE_KEY"
     done
 }
 
