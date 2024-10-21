@@ -287,7 +287,7 @@ workflows:
                - master
                - demo
 
-  test-all:
+test-all:
     jobs:
       - test_regression_model_py36
       - test_regression_model_py37
@@ -308,34 +308,3 @@ workflows:
             branches:
               only:
                 - master
-#       - section_10_deploy_to_heroku:
-#           requires:
-#             - train_and_upload_regression_model
-#           filters:
-#             branches:
-#               only:
-#                 - master
-#      - section_11_build_and_push_to_heroku_docker:
-#          requires:
-#            - train_and_upload_regression_model
-#          filters:
-#            branches:
-#              only:
-#                - master
-#       - section_12_publish_docker_image_to_aws:
-#           requires:
-#             - train_and_upload_regression_model
-#           filters:
-#             branches:
-#               only:
-#                 - master
-#      - section_13_train_and_upload_neural_network_model:
-#          requires:
-#            - test_regression_model
-#            - test_ml_api
-#            - section_9_differential_tests
-#             - train_and_upload_regression_model
-#           filters:
-#             branches:
-#               only:
-#                 - master
