@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Building packages and uploading them to a Gemfury repository
-chmod +x publish_model.sh
 
 GEMFURY_URL=$GEMFURY_PUSH_URL
+echo GEMFURY_URL
 
 set -e
 
