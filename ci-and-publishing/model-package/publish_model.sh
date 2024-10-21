@@ -2,9 +2,7 @@
 
 # Building packages and uploading them to a Gemfury repository
 
-GEMFURY_URL= "https://hzYH8XS4QbE753aQgsyS@push.fury.io/sahilpatil98/"
-
-echo $GEMFURY_PUSH_URL
+GEMFURY_URL= $GEMFURY_PUSH_URL
 
 set -e
 
