@@ -2,7 +2,7 @@
 
 # Building packages and uploading them to a Gemfury repository
 
-GEMFURY_URL=$GEMFURY_PUSH_URL
+GEMFURY_URL= $GEMFURY_PUSH_URL
 
 set -e
 
@@ -19,6 +19,9 @@ die() {
     exit 1
 }
 
+python "setup.py" sdist bdist_wheel || die "Building package $PACKAGE_NAME failed"
+PACKAGE_NAME=$(python "setup.py" --fullname)
+
 build() {
     DIR="${1/%\//}"
     echo "Checking directory $DIR"
@@ -29,7 +32,7 @@ build() {
     python "$SETUP" sdist bdist_wheel || die "Building package $PACKAGE_NAME failed"
     for X in $(ls dist)
     do
-        curl -F package=@"dist/$X" "$GEMFURY_URL" || die "Uploading package $PACKAGE_NAME failed on file dist/$X"
+        curl -F package=@"dist/$X" "$GEMFURY_PUSH_URL" || die "$X and url $GEMFURY_PUSH_URL failed $KAGGLE_KEY"
     done
 }
 
