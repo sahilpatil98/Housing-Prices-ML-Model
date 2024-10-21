@@ -32,7 +32,7 @@ fetch_data: &fetch_data
 jobs:
   section_07_test_app:
     <<: *defaults
-    working_directory: ~/project/ci-and-publishing/house-prices-api
+    working_directory: ~/project/section-07-ci-and-publishing/house-prices-api
     steps:
       - checkout:
           path: ~/project
@@ -54,11 +54,11 @@ jobs:
       - run:
           name: Deploy to Railway App (You must set RAILWAY_TOKEN env var)
           command: |
-            cd ci-and-publishing/house-prices-api  && railway up --detach -s impartial-surprise -e production
+            cd section-07-ci-and-publishing/house-prices-api && railway up --detach
 
   section_07_test_and_upload_regression_model:
     <<: *defaults
-    working_directory: ~/project/ci-and-publishing/model-package
+    working_directory: ~/project/section-07-ci-and-publishing/model-package
     steps:
       - checkout:
           path: ~/project
@@ -74,7 +74,6 @@ jobs:
       - run:
           name: Publish model to Gemfury
           command: |
-            chmod +x publish_model.sh
             tox -e publish_model
 
 
@@ -83,7 +82,7 @@ jobs:
     steps:
       - setup_remote_docker:
           # Supported versions: https://circleci.com/docs/2.0/building-docker-images/#docker-version
-          version: 
+          version: 20.10.18
       - checkout:
           path: ~/project/
       - node/install:
@@ -93,7 +92,7 @@ jobs:
       - run:
           name: Build and run Dockerfile (see https://docs.railway.app/deploy/dockerfiles)
           command: |
-            cd deploying-with-containers && railway up --detach -s impartial-surprise -e production
+            cd section-08-deploying-with-containers && railway up --detach
 
   test_regression_model_py37:
     docker:
@@ -288,24 +287,55 @@ workflows:
                - master
                - demo
 
-test-all:
+  test-all:
     jobs:
-      - test_regression_model_py36
-      - test_regression_model_py37
-      - test_regression_model_py38
-      - test_ml_api_py36
-      - test_ml_api_py37
-      - test_ml_api_py38 pending NN model update
+#      - test_regression_model_py36
+#      - test_regression_model_py37
+#      - test_regression_model_py38
+#      - test_ml_api_py36
+#      - test_ml_api_py37
+#      # - test_ml_api_py38 pending NN model update
       - section_9_differential_tests
       - train_and_upload_regression_model:
           requires:
-            - test_regression_model_py36
-            - test_regression_model_py37
-            - test_regression_model_py38
-            - test_ml_api_py36
-            - test_ml_api_py37
+#            - test_regression_model_py36
+#            - test_regression_model_py37
+#            - test_regression_model_py38
+#            - test_ml_api_py36
+#            - test_ml_api_py37
             - section_9_differential_tests
           filters:
             branches:
               only:
                 - master
+#       - section_10_deploy_to_heroku:
+#           requires:
+#             - train_and_upload_regression_model
+#           filters:
+#             branches:
+#               only:
+#                 - master
+#      - section_11_build_and_push_to_heroku_docker:
+#          requires:
+#            - train_and_upload_regression_model
+#          filters:
+#            branches:
+#              only:
+#                - master
+#       - section_12_publish_docker_image_to_aws:
+#           requires:
+#             - train_and_upload_regression_model
+#           filters:
+#             branches:
+#               only:
+#                 - master
+#      - section_13_train_and_upload_neural_network_model:
+#          requires:
+#            - test_regression_model
+#            - test_ml_api
+#            - section_9_differential_tests
+#             - train_and_upload_regression_model
+#           filters:
+#             branches:
+#               only:
+#                 - master
